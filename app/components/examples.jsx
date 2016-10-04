@@ -17,6 +17,7 @@ var Examples = ()=>{
 	return(
 			<div>
 			<h3>Examples!</h3>
+			<p>welcome</p>
 		
 			</div>
 		);
