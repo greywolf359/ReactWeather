@@ -13,12 +13,19 @@ var Examples = React.createClass({
 	}
 })
 */
-var Examples = ()=>{
+var Examples = (props)=>{
 	return(
 			<div>
-			<h3>Examples!!!!</h3>
-			<p>welcome!</p>
-		
+			<h1 className = "text-center">Examples</h1>
+			<p>Example locations to try out</p>
+			<ol>
+				<li>
+					<Link to = "/?location=Seattle">Seattle, WA</Link>
+				</li>
+				<li>
+					<Link to = "/?location=Dallas">Dallas, TX</Link>
+				</li>
+			</ol>
 			</div>
 		);
 }
