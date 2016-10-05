@@ -2,12 +2,13 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-	entry: [
+	entry:[ 
 	"script!jquery/dist/jquery.min.js",
 	"script!foundation-sites/dist/foundation.min.js",
 	"./app/index.jsx"
 	],
 
+	
 	externals: {
 		jquery: "jQuery"
 	},
@@ -17,7 +18,7 @@ module.exports = {
 			'jQuery': 'jquery'
 		})
 	],
-
+	
 	output: {path: __dirname, filename: './public/bundle.js'},
 	module: {
 				loaders: [
@@ -27,8 +28,8 @@ module.exports = {
 						exclude: /(node_modules|bower_components)/,
 						query: {presets: ['es2015', 'react']}	
 					},
-					{ test: /\.css$/, loader: "style!css" },
-					{loader: 'script-loader'}
+					//{ test: /\.css$/, loader: "style!css" },
+					//{loader: 'script-loader'}
 				]
 			},
 			resolve: {
