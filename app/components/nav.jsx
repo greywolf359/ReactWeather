@@ -15,7 +15,7 @@ var Nav = React.createClass({
 	}
 })
 
-*/
+*/                                                                                                                                    
 var Nav = ()=>{
 	return(
 			<div>
