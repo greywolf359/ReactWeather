@@ -7,6 +7,12 @@ var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
 
+//by default require does not know how to load css files so 
+//you must use the css loader css! and then inject it using style!
+require('style!css!foundation-sites/dist/foundation.min.css');
+
+$(document).foundation();
+
 ReactDOM.render(
 	<div>
 	{/*Router maintains the routes in the url*/}
