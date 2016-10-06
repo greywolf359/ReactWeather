@@ -11,7 +11,7 @@ var Examples = require('Examples');
 //you must use the css loader css! and then inject it using style!
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
-require('style!css!applicationStyles');
+require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
 	<div>
