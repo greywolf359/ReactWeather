@@ -15,13 +15,27 @@ var Weather = React.createClass({
 	handleSearch: function(location){
 		var self = this;
 
-		this.setState({isLoading: true, errorMessage: undefined});
+		this.setState({
+				location: undefined, 
+				temp: undefined, 
+				isLoading: true, 
+				errorMessage: undefined
+			});	
+
+	
 		openWeatherMap.getTemp(location).then(function(temp){
-			self.setState({location: location, temp: temp, isLoading: false});
+			self.setState({
+				location: location, 
+				temp: temp, 
+				isLoading: false, 
+			});
 
 		},
 			function(e){
-				self.setState({isLoading: false, errorMessage: `Returned error message: ${e.message}`});
+				self.setState({
+					isLoading: false, 
+					errorMessage: `Returned error message: ${e.message}`
+				});
 				console.log(e.message);
 				console.error("reject function executed");
 			}
@@ -32,6 +46,23 @@ var Weather = React.createClass({
 		console.log(loc);
 		this.setState({location: loc, temp: 23});
 		*/
+	},
+
+	componentDidMount: function(){
+		var location = this.props.location.query.location;
+
+		if(location && location.length > 0){
+			this.handleSearch(location);
+			window.location.hash = '#/';
+		}
+	},
+
+	componentWillReceiveProps: function(newProps){
+		var location = newProps.location.query.location;
+		if(location && location.length > 0){
+			this.handleSearch(location);
+			window.location.hash = '#/';
+		}
 	},
 
 	render: function(){

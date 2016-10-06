@@ -19,7 +19,14 @@ var Nav = React.createClass({
 var Nav = React.createClass({
 	onSearch: function(e){
 		e.preventDefault();
-		alert("search works");
+		var query = this.refs.query.value;
+		var encoded_location = encodeURIComponent(query);
+		console.log(query);
+
+		if (query.length > 0){
+			this.refs.query.value = "";
+			window.location.hash = `#/?location=${encoded_location}`;
+		}
 	},
 
 	render: function(){
@@ -36,7 +43,7 @@ var Nav = React.createClass({
 				<div className = "top-bar-right">
 					<form onSubmit = {this.onSearch}>
 					<ul className = "menu">
-      					<li><input type="search" placeholder="Search weather"/></li>
+      					<li><input type="search" placeholder="Search weather" ref = "query"/></li>
       					<li><input type="submit" className="button" value = "Get Weather"/></li>
       				</ul>
       				</form>
